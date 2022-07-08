@@ -47,4 +47,4 @@ spring:
         min-idle: 0
 
 jwt:
-  secret: onZ0kZkks6OwixyzDOfZrvw
+  secret: onZ0kZ4382OwixyzDOfZrvw/zmRI65L4BhzTaceKkD8=
