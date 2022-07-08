@@ -1,4 +1,5 @@
 # Spring Boot g8 Template
+A functional Spring Boot scaffolding (min. Java 17 required)
 
 ## Usage
 
