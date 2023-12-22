@@ -1,14 +1,14 @@
 package $package$.$name;format="normalize"$.vo;
 
 import $package$.$name;format="normalize"$.entity.User;
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
  * UserCreateForm
  */
 @Data
-@ApiModel("创建用户参数")
+@Schema(title = "创建用户参数")
 public class UserCreateForm {
     private String name;
     private String mobile;

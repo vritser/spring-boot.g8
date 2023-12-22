@@ -2,14 +2,14 @@ package $package$.$name;format="normalize"$.vo;
 
 import $package$.$name;format="normalize"$.entity.ClientUser;
 import org.hibernate.validator.constraints.Length;
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
  * WechatLoginRequest
  */
 @Data
-@ApiModel("小程序登录参数")
+@Schema("小程序登录参数")
 public class WechatLoginForm {
     @Length(min = 28, max = 28, message = "openid 格式不正确")
     private String openid;

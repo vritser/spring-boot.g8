@@ -1,11 +1,13 @@
 package $package$.$name;format="normalize"$.config;
 
-import javax.validation.Validation;
-import javax.validation.Validator;
-
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
 
 import org.hibernate.validator.HibernateValidator;
 import org.springframework.context.annotation.Bean;
@@ -64,16 +66,6 @@ public class BeanCreationConfig {
         return validatorFactory.getValidator();
     }
 
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-            .apiInfo(apiInfo())
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("$package$.$name;format="normalize"$.controller"))
-            .paths(PathSelectors.any())
-            .build();
-    }
-
     // @Bean
     // public CorsFilter corsFilter() {
     //     final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -88,11 +80,9 @@ public class BeanCreationConfig {
     //     return new CorsFilter(source);
     // }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-            .title("$name$ API Doc")
-            .description("$name$ 接口文档")
-            .version("1.0")
-            .build();
+    @Bean
+    public OpenAPI apiInfo() {
+        var info = new Info().title("$name__Camel$").description("API for $name__Camel$");
+        return new OpenAPI().info(info);
     }
 }

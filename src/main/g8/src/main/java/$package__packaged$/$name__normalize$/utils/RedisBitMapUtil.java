@@ -34,7 +34,7 @@ public class RedisBitMapUtil {
     }
 
     public Long bitCount(String key) {
-        return redisTemplate.execute((RedisCallback<Long>)con -> con.bitCount(key.getBytes()));
+        return redisTemplate.execute((RedisCallback<Long>)conn -> conn.stringCommands().bitCount(key.getBytes()));
     }
 
     public List<Long> bitField(String key, int limit, long offset) {

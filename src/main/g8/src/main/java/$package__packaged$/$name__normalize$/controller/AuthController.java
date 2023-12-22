@@ -13,15 +13,15 @@ import $package$.$name;format="normalize"$.vo.WechatLoginForm;
 import $package$.$name;format="normalize"$.vo.UserLoginForm;
 import $package$.$name;format="normalize"$.vo.PasswordUpdateForm;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 /**
  * AuthController
  */
 @RestController
 @RequestMapping("/login")
-@Api(value = "登录接口", tags = { "登录接口" })
+@Tag(description = "登录接口")
 public class AuthController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class AuthController {
 
     @PassAuth
     @PostMapping("/client")
-    @ApiOperation("小程序登录")
+    @Operation(summary = "小程序登录")
     public Resp<?> login(@Validated @RequestBody WechatLoginForm form) {
         return Resp.from(authService.login(form));
     }
@@ -42,7 +42,7 @@ public class AuthController {
     }
 
     @PutMapping("/modify")
-    @ApiOperation("后台用户修改密码")
+    @Operation(summary = "后台用户修改密码")
     public Resp<?> modifyPassword(@Authorized AuthorizedUser user, @RequestBody PasswordUpdateForm form) {
         return Resp.from(authService.modifyPassword(user.getId(), form));
     }

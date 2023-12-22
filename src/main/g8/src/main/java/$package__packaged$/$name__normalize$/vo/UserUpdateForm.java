@@ -3,15 +3,14 @@ package $package$.$name;format="normalize"$.vo;
 import java.util.List;
 import java.util.Optional;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
  * UserUpdateForm
  */
 @Data
-@ApiModel("更新用户信息参数")
+@Schema(title = "更新用户信息参数")
 public class UserUpdateForm {
     private Optional<String> name = Optional.empty();
     private Optional<String> mobile = Optional.empty();
