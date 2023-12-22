@@ -82,7 +82,7 @@ public class BeanCreationConfig {
 
     @Bean
     public OpenAPI apiInfo() {
-        var info = new Info().title("$name__Camel$").description("API for $name__Camel$");
+        var info = new Info().title("$name;format=\"upcase\"$").description("API for $name;format=\"upcase\"$");
         return new OpenAPI().info(info);
     }
 }
